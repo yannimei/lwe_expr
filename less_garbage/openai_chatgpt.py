@@ -1,0 +1,32 @@
+from flask import Flask,request,jsonify
+
+from gpt_bot import GPTBot
+
+app = Flask(__name__)
+bot0 = GPTBot()
+bot1 = GPTBot()
+
+@app.route("/chatgpt/question0",methods=["POST"])
+def question0():
+    prompt = request.json
+    question = prompt["question"]
+
+    response = bot0.ask(question)
+    print(response)
+    return response
+    
+@app.route("/chatgpt/question1",methods=["POST"])
+def question1():
+    prompt = request.json
+    question = prompt["question"]
+
+    response = bot1.ask(question)
+    print(response)
+    return response   
+
+@app.route("/chatgpt/status",methods=["GET"])
+def status():
+    return jsonify(status="ok")
+
+if __name__ == "__main__":
+    app.run(threaded=False)
