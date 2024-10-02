@@ -1,10 +1,11 @@
 from flask import Flask,request,jsonify
-
 from gpt_bot import GPTBot
+from metaprompt.scene_analyzer import metaprompt as metaSA
 
 app = Flask(__name__)
 bot0 = GPTBot()
 bot1 = GPTBot()
+botSceneAnalyzer = GPTBot(role=metaSA)
 
 @app.route("/chatgpt/question0",methods=["POST"])
 def question0():
@@ -21,6 +22,15 @@ def question1():
     question = prompt["question"]
 
     response = bot1.ask(question)
+    print(response)
+    return response   
+
+@app.route("/chatgpt/sceneAnalyzer",methods=["POST"])
+def sceneAnalyzer():
+    prompt = request.json
+    question = prompt["question"]
+
+    response = botSceneAnalyzer.ask(question)
     print(response)
     return response   
 

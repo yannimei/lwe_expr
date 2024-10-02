@@ -1,5 +1,5 @@
 from flask import Flask,request,jsonify
-from  lwe import ApiBackend
+from lwe import ApiBackend
 
 app = Flask(__name__)
 bot = ApiBackend()
