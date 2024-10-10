@@ -2,9 +2,10 @@ from openai import OpenAI
 client = OpenAI()
 
 class GPTBot:
-    def __init__(self, role="") -> None:
+    def __init__(self, role="", historyAmount = 0) -> None:
         self.history = []
         self.role = role
+        self.historyAmount = historyAmount
 
     def ask(self, prompt):
         # add the meta prompt
@@ -34,3 +35,6 @@ class GPTBot:
     def update_history(self, prompt, response):
         self.history.append(("user", prompt))
         self.history.append(("assistant", response))
+        
+        while len(self.history) > self.historyAmount:
+            self.history.pop(0)

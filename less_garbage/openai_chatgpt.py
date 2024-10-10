@@ -4,7 +4,7 @@ from metaprompt.scene_analyzer import metaprompt as metaSA
 from metaprompt.code_instructor import metaprompt as metaCI
 
 app = Flask(__name__)
-bot0 = GPTBot()
+bot0 = GPTBot(historyAmount=2)
 bot1 = GPTBot()
 botSceneAnalyzer = GPTBot(role=metaSA)
 botCodeInstructor = GPTBot(role=metaCI)
