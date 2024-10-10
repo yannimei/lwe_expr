@@ -2,19 +2,20 @@ from flask import Flask,request,jsonify
 from gpt_bot import GPTBot
 from metaprompt.scene_analyzer import metaprompt as metaSA
 from metaprompt.code_instructor import metaprompt as metaCI
+from metaprompt.code_generator import metaprompt as metaCG
 
 app = Flask(__name__)
-bot0 = GPTBot(historyAmount=2)
+botcodeGenerator = GPTBot(role=metaCG, historyAmount=2)
 bot1 = GPTBot()
 botSceneAnalyzer = GPTBot(role=metaSA)
 botCodeInstructor = GPTBot(role=metaCI)
 
-@app.route("/chatgpt/question0",methods=["POST"])
-def question0():
+@app.route("/chatgpt/codeGenerator",methods=["POST"])
+def codeGenerator():
     prompt = request.json
     question = prompt["question"]
 
-    response = bot0.ask(question)
+    response = botcodeGenerator.ask(question)
     print(response)
     return response
     
