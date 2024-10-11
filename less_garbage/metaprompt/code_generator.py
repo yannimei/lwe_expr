@@ -15,9 +15,9 @@ Each generated script should:
 - Implement the required methods defined in the ChatGPTScript interface.
 - Use Unity's built-in methods where applicable (e.g., Destroy(), enabled property).
 
-here is an example for how to implement the interface:
 
-### example script
+here is an example for how to implement the interface:
+### example script 1
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -43,5 +43,44 @@ public class Generation: MonoBehaviour, ChatGPTScript
         this.enabled = active;  // Enables or disables the script
     }
 }
+
+If the script creates or instantiates any game objects, ensure the following:
+- Destroy the game object in the DestroyScript() method.
+- Disable or enable the game object in the SetActive() method.
+
+Here is the example:
+
+### example script 2
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Generation : MonoBehaviour, ChatGPTScript
+{
+    private GameObject cube;
+
+    public string GetName()
+    {
+        return "Example";
+    }
+
+    public void DestroyScript()
+    {
+        Destroy(this.cube);  // Destroys the created object
+        Destroy(this.gameObject);
+    }
+
+    public void SetActive(bool active)
+    {
+        this.cube.SetActive(active);  // Enables or disables the cube
+        this.enabled = active;
+    }
+
+    private void Start()
+    {
+        this.cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+    }
+}
+
 Each script you generate should follow this structure, with the name "Generation". Add any additional logic specific to the particular script's functionality.
 '''
