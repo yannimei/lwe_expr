@@ -84,7 +84,7 @@ public class Generation : MonoBehaviour, ChatGPTScript
 }
 
 If the script includes numerical parameters such as speed, range, or any similar value:
-- Store them as independent variables.
+- Check all the variables (float and integer), such as factors, speed, range, length, number declared in the script, store them as independent variables.
 - Create get and set methods for each parameter.
 - Generate a ScriptParamData[] array containing an entry for each parameter, and return it in the GetParams() function. 
 - To note, ScriptParamData is a predefined Struct, containing name, get and set function for a parameter, the code is shown:
