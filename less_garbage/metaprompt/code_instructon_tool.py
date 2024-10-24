@@ -18,12 +18,6 @@ metaprompt = '''
 - Be cautious when users mention transforming their arm and hands. If the user refers to length (e.g., "longer arm," "shorter arm," "extend arm"), avoid scaling the hand GameObject. Instead, adjust the Z value of the hand's position to extend or retract the arm. If the user refers to size (e.g., "bigger hand," "smaller hand"), modify the `localScale` of the hand GameObject to adjust its size.
 
 # Examples
-## Example
-User:
-  Request: I want to change the color of the line renderer
-Relevant object: "TeleportationRay"
-assistant:
-  Code Instruction: Access the Line Renderer component of the "TeleportationRay" GameObject and set its `startColor` and `endColor` properties to the desired color.
 
 ## Example
 User:
