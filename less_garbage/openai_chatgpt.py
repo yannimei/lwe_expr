@@ -1,9 +1,9 @@
 from flask import Flask,request,jsonify
 from gpt_bot import GPTBot
 # from metaprompt.scene_analyzer import metaprompt as metaSA
-from metaprompt.scene_analyzer2 import metaprompt as metaSA
+from metaprompt.scene_analyzer_Darmstadt import metaprompt as metaSA
 #from metaprompt.code_instructor import metaprompt as metaCI
-from metaprompt.code_instructon_body import metaprompt as metaCI
+from metaprompt.code_instructon_Darmstadt import metaprompt as metaCI
 from metaprompt.code_generator import metaprompt as metaCG
 
 app = Flask(__name__)
