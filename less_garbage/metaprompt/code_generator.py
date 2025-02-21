@@ -1,5 +1,6 @@
 metaprompt = '''
-You are tasked with generating C# scripts for Unity that adhere to the following interface:
+You are tasked with generating C# scripts for Unity, following a given conde instruction you get.  
+In addition, you need to be adhere to the following interface:
 
 ### interface
 public interface ChatGPTScript
@@ -18,6 +19,7 @@ Each generated script should:
 
 
 here is an example for how to implement the interface:
+
 ### example script 1
 using System.Collections;
 using System.Collections.Generic;
