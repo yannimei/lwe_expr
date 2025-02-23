@@ -24,6 +24,7 @@ here is an example for how to implement the interface:
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 public class Generation: MonoBehaviour, ChatGPTScript
 {
     public void DestroyScript()
@@ -57,6 +58,7 @@ Here is the example:
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Generation : MonoBehaviour, ChatGPTScript
 {
@@ -111,6 +113,7 @@ Here is the example of script for two parameters for speed and range:
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Generation : MonoBehaviour, ChatGPTScript
 {
